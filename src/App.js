@@ -1,15 +1,10 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-import Card from './Components/Card/Card';
-import FlexContent from './Components/FlexContent/FlexContent';
+import Dogs from './pages/Dogs/dogs';
 
-const App = memo(() => (
+const App = () => (
   <>
-    <FlexContent>
-      <div>test</div>
-      <div>test</div>
-    </FlexContent>
-    <Card />
+    <Dogs />
   </>
-));
+);
 export default App;
