@@ -1,19 +1,29 @@
 import React, { memo } from 'react';
-
+import PropTypes from 'prop-types';
 import {
   BodyStyled,
   ContentStyled,
-  HeaderStyled,
+  HeaderContent,
 } from './styled/Template.styled';
 
-export const Body = memo(({ children }) => {
-  <BodyStyled>{children}</BodyStyled>;
-});
+export const Body = memo(({ children }) => <BodyStyled>{children}</BodyStyled>);
 
-export const Header = memo(({ children }) => {
-  <HeaderStyled>{children}</HeaderStyled>;
-});
+Body.propTypes = {
+  children: PropTypes.string.isRequired,
+};
 
-export const Content = memo(({ childre }) => {
-  <ContentStyled>{children}</ContentStyled>;
-});
+export const Header = memo(({ children }) => (
+  <HeaderContent>{children}</HeaderContent>
+));
+
+Header.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
+export const Content = memo(({ children }) => (
+  <ContentStyled>{children}</ContentStyled>
+));
+
+Content.propTypes = {
+  children: PropTypes.string.isRequired,
+};
