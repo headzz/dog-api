@@ -1,4 +1,7 @@
 const webpack = require('webpack');
+require('@babel/core').transform('code', {
+  plugins: ['@babel/plugin-transform-regenerator'],
+});
 
 module.exports = {
   entry: './src/index.js',

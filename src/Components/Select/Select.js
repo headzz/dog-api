@@ -1,16 +1,19 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-
-import { SelectStyled } from './styled/Select.styled';
+import { SelectStyled, OptionStyled } from './styled/Select.styled';
 
 const Select = memo(({ data }) => (
   <SelectStyled>
-    <option value={data}>{data}</option>
+    {data.map((item, index) => (
+      <OptionStyled value={item} key={index.toString()}>
+        {item}
+      </OptionStyled>
+    ))}
   </SelectStyled>
 ));
 
 Select.propTypes = {
-  data: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Select;

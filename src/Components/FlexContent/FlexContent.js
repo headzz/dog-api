@@ -1,28 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { FlexStyled } from './styled/FlexContent.styled';
 
-const FlexStyled = styled.div`
-  display: flex;
-  justify-content: ${props => props.justify};
-  align-items: ${props => props.align};
-`;
-
-const FlexContent = ({ children, justify, align }) => (
-  <FlexStyled justify={justify} align={align}>
+const FlexContent = ({ children, justify, align, direction }) => (
+  <FlexStyled justify={justify} align={align} direction={direction}>
     {children}
   </FlexStyled>
 );
 
 FlexContent.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  justify: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]).isRequired,
   align: PropTypes.string,
+  direction: PropTypes.string,
+  justify: PropTypes.string,
 };
 
 FlexContent.defaultProps = {
-  justify: '',
   align: '',
+  direction: '',
+  justify: '',
 };
 
 export default FlexContent;
