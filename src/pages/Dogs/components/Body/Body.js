@@ -1,28 +1,26 @@
 import React, { memo } from 'react';
-import Select from '../../../../Components/Select/Select';
+import PropTypes from 'prop-types';
+import UserInput from '../UserInput/UserInput';
 import ContentStyled from './styled/Body.styled';
 import FlexContent from '../../../../Components/FlexContent/FlexContent';
-import useFetch from '../../../../utils/hooks/useFetch';
+import Loading from '../../../../Components/Loading/Loading';
 
-const fonts = [
-  'ZCOOL XiaoWei',
-  'Montserrat',
-  'Staatliches',
-  'Supermercado One',
-  'Big Shoulders',
-];
+const Body = memo(({ fetch }) => (
+  <ContentStyled>
+    <FlexContent justify="center" align="center" direction="column">
+      {fetch.loading && <Loading />}
+      {!fetch.loading && <UserInput dogData={fetch.dogData} />}
+    </FlexContent>
+  </ContentStyled>
+));
 
-const Body = memo(() => {
-  const fetch = useFetch();
-  return (
-    <ContentStyled>
-      {!fetch.loading && (
-        <FlexContent justify="center" align="center" direction="column">
-          <Select data={fonts} />
-        </FlexContent>
-      )}
-    </ContentStyled>
-  );
-});
+Body.propTypes = {
+  fetch: PropTypes.shape({
+    loading: PropTypes.bool,
+    dogData: PropTypes.arrayOf(PropTypes.node),
+    error: PropTypes.bool,
+    message: PropTypes.string,
+  }).isRequired,
+};
 
 export default Body;
