@@ -12,6 +12,7 @@ FlexContent.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element,
+    PropTypes.bool,
   ]).isRequired,
   align: PropTypes.string,
   direction: PropTypes.string,
