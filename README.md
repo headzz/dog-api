@@ -1,4 +1,5 @@
 ##Instalação
+Após clonar este repositório será necessário instalar suas depndências.
 
 Para instalar todos os pacotes do serviço basta executar o comando:
 
@@ -8,8 +9,8 @@ npm install
 
 ## Executando o projeto
 
-Basta seguir o seguinte comando para inicializar o script do webpack:
+Para inicializar a aplicação baste realizar:
 
 ```
-npm run-script start
+npm run start
 ```
